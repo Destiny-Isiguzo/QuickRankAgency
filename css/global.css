@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+:root {
+   /* font family */
+   --ff-heading: "Inter", serif;
+   --ff-cursive: "Playfair Display", serif;
+   --ff-body: "Manrope", sans-serif;
+
+   /* font-weight */
+   --fw-regular: 400;
+   --fw-medium: 500;
+   --fw-semi-bold: 600;
+   --fw-bold: 700;
+   --fw-semi-extra-bold: 800;
+   --fw-extra-bold: 900;
+
+   /* color */
+   --clr-gray-lighter: #888680;
+   --clr-gray-dark: #302f2c;
+   --clr-gray-light: #3f4816;
+   --clr-text: #1a1c1b;
+   --clr-accent: #ff5e1f;
+
+   /* size */
+   --fs-1: 1.5rem;
+   --fs-2: 1.25rem;
+   --fs-3: 1rem;
+   --fs-4: 0.875rem;
+   --fs-5: 0.75rem;
+
+
+   /* border radius */
+   --br-s: .75rem;
+   --br-1: 1rem;
+   --br-2: 2rem;
+   --br-3: 3rem;
+
+   /* gap */
+   --gap-s: .5rem;
+   --gap-1: 1rem;
+   --gap-2: 1.5rem;
+   --gap-3: 2rem;
+   --gap-4: 2.5rem;
+   --gap-5: 3rem;
+   --gap-6: 3.5rem;
+   --gap-7: 4rem;
+}
+
+
+/* Global Styles */
+
+body {
+   font-family: var(--ff-body);
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   color: var(--clr-text);
+}
+
+/* Button Styles */
+.btn-primary {
+   background: var(--btn-primary);
+   color: white;
+   border: none;
+   border-radius: 10rem;
+   /* Pill/Capsule */
+   padding: 1rem 2rem;
+   font-family: 'Inter', Arial, sans-serif;
+   font-weight: 600;
+   font-size: 1rem;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   min-height: 48px;
+   text-decoration: none;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   line-height: 1.1em;
+   letter-spacing: -0.02em;
+   text-transform: uppercase;
+}
+
+.btn-primary:hover {
+   background: var(--btn-hover);
+   transform: scale(1.02);
+}
+
+.btn-primary:active {
+   transform: scale(0.98);
+}
+
+.btn-secondary {
+   background: transparent;
+   color: var(--brand-primary);
+   border: 1px solid var(--brand-primary);
+   border-radius: 10rem;
+   padding: 1rem 2rem;
+   font-family: 'Inter', Arial, sans-serif;
+   font-weight: 600;
+   font-size: 1rem;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   min-height: 48px;
+   text-decoration: none;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   line-height: 1.1em;
+   letter-spacing: -0.02em;
+   text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+   background: var(--brand-primary);
+   color: var(--text-inverse);
+   transform: scale(1.02);
+}
