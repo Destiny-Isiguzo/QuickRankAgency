@@ -198,7 +198,7 @@ body {
   color: var(--clr-text);
   font-family: var(--ff-body);
   font-weight: var(--fw-medium);
-  font-size: var(--fs-1);
+  font-size: .95rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -262,5 +262,6 @@ body {
 }
 
 .btn-secondary-light:is(:hover, :focus, :active) {
-  border: 1.59px solid var(--clr-white);
+  border: 1.59px solid var(--clr-accent-300);
+  color: var(--clr-accent-300);
 }
