@@ -64,7 +64,11 @@ function initNavigation() {
 
    // Close nav when clicking outside
    document.addEventListener('click', (e) => {
-      if (!navWrapper.contains(e.target) && !menuOpenBtn.contains(e.target) && !navOverlay.contains(e.target)) {
+      if (
+         !navWrapper.contains(e.target) &&
+         !menuOpenBtn.contains(e.target) &&
+         !navOverlay.contains(e.target)
+      ) {
          if (navWrapper.classList.contains('nav-active')) {
             closeMenu();
          }
@@ -183,7 +187,8 @@ function initLazyLoading() {
          img.classList.add('error');
          container?.classList.add('error');
          if (placeholder) {
-            placeholder.innerHTML = '<span style="color: #6c757d; font-size: 14px;">Loading error</span>';
+            placeholder.innerHTML =
+               '<span style="color: #6c757d; font-size: 14px;">Loading error</span>';
          }
          loadedImages.add(img);
       };
