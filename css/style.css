@@ -108,7 +108,7 @@ header {
 
 .nav-link {
   color: var(--clr-white);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: var(--transition-1);
 }
 
@@ -349,8 +349,8 @@ header {
 
 .service-card {
   background-color: #f8f8f8;
-  border-radius: var(--br-2);
-  border: 1.4px dashed var(--clr-muted);
+  border-radius: var(--br-1);
+  border: 1.5px dashed var(--clr-muted);
   display: flex;
   flex-direction: column;
   gap: var(--gap-2);
@@ -395,11 +395,11 @@ header {
 .project-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(clamp(18rem, 13.7746rem + 18.0282vw, 30rem), 1fr));
-  gap: var(--gap-6);
+  gap: var(--gap-5);
 }
 
 .project-card-img img {
-  border-radius: var(--br-s);
+  border-radius: var(--br-1);
   object-fit: cover;
 }
 
@@ -604,7 +604,7 @@ header {
 
 .step-card {
   background-color: var(--clr-white);
-  border-radius: var(--br-s);
+  border-radius: var(--br-1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -726,7 +726,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: var(--gap-3);
-  align-items: center;
+  align-items: end;
 }
 
 .pricing-plan {
@@ -741,6 +741,10 @@ header {
   padding: 1.6rem;
 }
 
+.popular {
+  position: relative;
+}
+
 .plan-badge {
   align-self: flex-start;
   background: linear-gradient(127deg, #323232, #010101);
@@ -749,6 +753,11 @@ header {
   font-size: .9rem;
   font-weight: var(--fw-semi-bold);
   padding: .5rem 1.7rem;
+  position: absolute;
+  top: -1.3rem;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 1;
 }
 
 .plan-header {
@@ -779,7 +788,7 @@ header {
   margin-top: .3rem;
 }
 
-.plan-cta {
+.plan-btn {
   background: rgba(255, 255, 255, .4);
   border-radius: var(--br-s);
   border: 1.5px solid rgba(255, 255, 255, .4);
@@ -795,12 +804,17 @@ header {
   transition: var(--transition-1);
 }
 
-.plan-cta i {
+.plan-btn:is(:hover, :focus, :active) {
+  background: rgba(255, 255, 255, .6);
+  border: 1.5px solid rgba(255, 255, 255, .6);
+}
+
+.plan-btn i {
   color: var(--clr-text);
   transition: var(--transition-1);
 }
 
-.plan-cta:is(:hover, :focus, :active) i {
+.plan-btn:is(:hover, :focus, :active) i {
   transform: translate(6px);
 }
 
@@ -812,4 +826,26 @@ header {
 
 .plan-features li i {
   margin-right: .2rem;
+}
+
+.plan-cta {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, .4);
+  border-radius: var(--br-s);
+  border: 1.5px solid rgba(255, 255, 255, .4);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px 0px;
+  padding: 1.5rem;
+}
+
+.plan-cta .bi-info-circle {
+  font-size: 1rem;
+  color: var(--clr-text);
+  margin-right: .25rem;
+}
+
+.plan-cta a {
+  margin-inline: .27rem;
+  border-bottom: 1px solid var(--clr-text);
+  color: var(--clr-text);
+  font-weight: var(--fw-semi-bold);
 }

@@ -204,7 +204,7 @@ body {
 }
 
 .heading-highlight {
-  color: var(--clr-muted);
+  color: rgba(255, 255, 255, .9);
   font-family: var(--ff-cursive);
   font-style: italic;
 }
