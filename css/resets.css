@@ -35,7 +35,7 @@ ol[role='list'] {
 html:focus-within,
 html {
    scroll-behavior: smooth;
-   scroll-padding-top: 50px;
+   scroll-padding-top: 80px;
 }
 
 /* Set core body defaults */

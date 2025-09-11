@@ -332,7 +332,7 @@ header {
 }
 
 .section-heading {
-  max-width: 37rem;
+  max-width: 36rem;
 }
 
 .section-header {
@@ -773,7 +773,7 @@ header {
 .price-currency, 
 .price-amount {
   font-weight: var(--fw-semi-bold);
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-family: var(--ff-heading);
 }
 
@@ -824,11 +824,11 @@ header {
 
 .plan-cta {
   align-self: flex-start;
-  background: rgba(255, 255, 255, .4);
+  /* background: rgba(255, 255, 255, .4);
   border-radius: var(--br-s);
   border: 1.5px solid rgba(255, 255, 255, .4);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px 0px;
-  padding: 1.5rem;
+  padding: 1.5rem; */
 }
 
 .plan-cta .bi-info-circle {
@@ -898,4 +898,89 @@ header {
 
 .testimonial-rating i {
   color: var(--clr-accent-400);
+}
+
+
+
+/* FAQ SECTION */
+
+.faq-section {
+  display: flex;
+   flex-direction: column;
+  gap: var(--gap-5);
+  margin-block: clamp(4rem, 2.9437rem + 4.5070vw, 7rem);
+  padding-inline: clamp(1.2rem, -1.5465rem + 11.7183vw, 9rem);
+}
+
+.faq-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+}
+
+.faq-card {
+  border-bottom: 1.4px solid rgba(0 0 0 / .12);
+  padding: 1rem 0 1.3rem 0;
+}
+
+.faq-card-heading {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-1);
+}
+
+.faq-card-heading.faqActive i {
+  transform: rotate(-180deg);
+}
+
+.faq-card-question {
+  font-family: var(--ff-heading);
+  font-size: 1.15rem;
+}
+
+.faq-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.faq-card-icon i {
+  color: var(--clr-dark);
+  font-size: 1.2rem;
+  transition: all var(--transition-1);
+}
+
+.faq-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-1);
+}
+
+.faq-card-content {
+  padding-top: 1.5rem;
+}
+
+.faq-card-content li {
+  list-style-position: inside;
+}
+
+.faq-card-answer-link {
+  border-bottom: 1px solid var(--clr-text);
+  color: var(--clr-text);
+  font-weight: var(--fw-semi-bold);
+}
+
+.faq-cta a {
+  border-bottom: 1px solid var(--clr-text);
+  color: var(--clr-text);
+  font-weight: var(--fw-semi-bold);
+}
+
+.faq-cta a i {
+  margin-left: .25rem;
 }

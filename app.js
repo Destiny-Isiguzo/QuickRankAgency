@@ -368,3 +368,45 @@ function initInfiniteCarousel() {
       });
    };
 }
+
+/**
+ * FAQ functionality
+ */
+const faqCards = document.querySelectorAll('.faq-card');
+
+faqCards.forEach((faqCard) => {
+   const faqCardHeading = faqCard.querySelector('.faq-card-heading');
+   const faqCardBody = faqCard.querySelector('.faq-card-body');
+   const faqCardIcon = faqCard.querySelector('.faq-card-icon');
+
+   let isActive = false;
+
+   faqCardHeading.addEventListener('click', () => {
+      isActive = !isActive;
+      faqCardHeading.classList.toggle('faqActive', isActive);
+      faqCardIcon.setAttribute('aria-expanded', isActive);
+      faqCardBody.style.maxHeight = isActive
+         ? faqCardBody.scrollHeight + 'px'
+         : 0;
+
+      // Close other cards
+      faqCards.forEach((card) => {
+         if (card !== faqCard) {
+            const cardHeading = card.querySelector('.faq-card-heading');
+            const cardBody = card.querySelector('.faq-card-body');
+            const cardIcon = card.querySelector('.faq-card-icon');
+            cardHeading.classList.toggle('faqActive', false);
+            cardIcon.setAttribute('aria-expanded', 'false');
+            cardBody.style.maxHeight = 0;
+         }
+      });
+   });
+
+   // Keyboard accessibility
+   faqCardHeading.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+         e.preventDefault();
+         faqCardHeading.click();
+      }
+   });
+});
