@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
    initScrollSpy();
    initLazyLoading();
    initInfiniteCarousel();
+   initFAQ();
 
    console.log('🚀 All systems initialized');
 });
@@ -370,43 +371,61 @@ function initInfiniteCarousel() {
 }
 
 /**
- * FAQ functionality
+ * FAQ Section Functionality
  */
-const faqCards = document.querySelectorAll('.faq-card');
+function initFAQ() {
+   const faqCards = document.querySelectorAll('.faq-card');
 
-faqCards.forEach((faqCard) => {
-   const faqCardHeading = faqCard.querySelector('.faq-card-heading');
-   const faqCardBody = faqCard.querySelector('.faq-card-body');
-   const faqCardIcon = faqCard.querySelector('.faq-card-icon');
-
-   let isActive = false;
-
-   faqCardHeading.addEventListener('click', () => {
-      isActive = !isActive;
-      faqCardHeading.classList.toggle('faqActive', isActive);
-      faqCardIcon.setAttribute('aria-expanded', isActive);
-      faqCardBody.style.maxHeight = isActive
-         ? faqCardBody.scrollHeight + 'px'
-         : 0;
-
-      // Close other cards
+   // Function to close all FAQ cards except the active one
+   const closeOtherCards = (activeCard) => {
       faqCards.forEach((card) => {
-         if (card !== faqCard) {
-            const cardHeading = card.querySelector('.faq-card-heading');
-            const cardBody = card.querySelector('.faq-card-body');
-            const cardIcon = card.querySelector('.faq-card-icon');
-            cardHeading.classList.toggle('faqActive', false);
-            cardIcon.setAttribute('aria-expanded', 'false');
-            cardBody.style.maxHeight = 0;
+         if (card !== activeCard) {
+            const heading = card.querySelector('.faq-card-heading');
+            const body = card.querySelector('.faq-card-body');
+            heading.classList.remove('faqActive');
+            body.style.maxHeight = null;
+         }
+      });
+   };
+
+   // Function to toggle FAQ card
+   const toggleFAQCard = (card) => {
+      const heading = card.querySelector('.faq-card-heading');
+      const body = card.querySelector('.faq-card-body');
+      const isActive = heading.classList.contains('faqActive');
+
+      // Close all other cards
+      closeOtherCards(card);
+
+      // Toggle current card
+      heading.classList.toggle('faqActive', !isActive);
+      body.style.maxHeight = isActive ? null : `${body.scrollHeight}px`;
+   };
+
+   // Add click event listeners to FAQ cards
+   faqCards.forEach((card) => {
+      const heading = card.querySelector('.faq-card-heading');
+
+      heading.addEventListener('click', () => {
+         toggleFAQCard(card);
+      });
+
+      // Keyboard accessibility
+      heading.addEventListener('keydown', (e) => {
+         if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleFAQCard(card);
          }
       });
    });
 
-   // Keyboard accessibility
-   faqCardHeading.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+   // Smooth scroll for FAQ CTA
+   const faqCTA = document.querySelector('.faq-cta a');
+   if (faqCTA) {
+      faqCTA.addEventListener('click', (e) => {
          e.preventDefault();
-         faqCardHeading.click();
-      }
-   });
-});
+         // Add your CTA action here
+         console.log('FAQ CTA clicked');
+      });
+   }
+}
