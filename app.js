@@ -6,8 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
    initLazyLoading();
    initInfiniteCarousel();
    initFAQ();
+   initScrollToTop();
 
    console.log('🚀 All systems initialized');
+
+   // Footer year
+   const yearEl = document.querySelector('.year');
+   if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+   }
 });
 
 /**
@@ -381,8 +388,10 @@ function initFAQ() {
       faqCards.forEach((card) => {
          if (card !== activeCard) {
             const heading = card.querySelector('.faq-card-heading');
+            const faqCard = document.querySelector('.faq-card');
             const body = card.querySelector('.faq-card-body');
             heading.classList.remove('faqActive');
+            faqCard.classList.remove('faqCardActive');
             body.style.maxHeight = null;
          }
       });
@@ -418,14 +427,93 @@ function initFAQ() {
          }
       });
    });
+}
 
-   // Smooth scroll for FAQ CTA
-   const faqCTA = document.querySelector('.faq-cta a');
-   if (faqCTA) {
-      faqCTA.addEventListener('click', (e) => {
-         e.preventDefault();
-         // Add your CTA action here
-         console.log('FAQ CTA clicked');
-      });
+/**
+ * Show scroll btn Functionality
+ */
+// Debounce function to limit how often the function can be called
+function debounce(func, wait) {
+   let timeout;
+   return function () {
+      const context = this;
+      const args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+         func.apply(context, args);
+      }, wait);
+   };
+}
+
+// Configuration
+const config = {
+   scrollButtonSelector: '.scroll-up-btn',
+   scrollThreshold: 400,
+   scrollThresholdMobile: 150, // Lower threshold for mobile devices
+   debounceTime: 100,
+   scrollBehavior: 'smooth',
+};
+
+// Get the scroll button element
+const scrollBtn = document.querySelector(config.scrollButtonSelector);
+
+// Function to get the appropriate scroll threshold based on device
+function getScrollThreshold() {
+   return window.innerWidth <= 768
+      ? config.scrollThresholdMobile
+      : config.scrollThreshold;
+}
+
+// Function to show/hide the scroll button
+function showScrollBtn() {
+   // Check if the scroll button element exists
+   if (!scrollBtn) return;
+
+   // Use the appropriate threshold based on device
+   const threshold = getScrollThreshold();
+   const shouldShow = window.scrollY > threshold;
+
+   // Toggle class only when necessary to avoid unnecessary DOM operations
+   if (shouldShow && !scrollBtn.classList.contains('show-scroll')) {
+      scrollBtn.classList.add('show-scroll');
+   } else if (!shouldShow && scrollBtn.classList.contains('show-scroll')) {
+      scrollBtn.classList.remove('show-scroll');
    }
+}
+
+// Function to scroll to top
+function scrollToTop() {
+   window.scrollTo({
+      top: 0,
+      behavior: config.scrollBehavior,
+   });
+}
+
+// Initialize functionality
+function initScrollToTop() {
+   // Check if the scroll button exists before proceeding
+   if (!scrollBtn) {
+      console.warn('Scroll button element not found');
+      return;
+   }
+
+   // Add click event to the scroll button
+   scrollBtn.addEventListener('click', scrollToTop);
+
+   // Add debounced scroll event listener
+   window.addEventListener(
+      'scroll',
+      debounce(showScrollBtn, config.debounceTime)
+   );
+
+   // Initial check to set the correct state on page load
+   showScrollBtn();
+
+   // Handle window resize to adjust threshold if needed
+   window.addEventListener(
+      'resize',
+      debounce(() => {
+         showScrollBtn();
+      }, config.debounceTime)
+   );
 }

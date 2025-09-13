@@ -218,7 +218,7 @@ body {
 /* Button Styles */
 .btn-primary-light {
   background: var(--clr-white);
-  border: 1.59px solid var(--clr-white);
+  /* border: 1px solid var(--clr-white); */
   border-radius: var(--br-s);
   color: var(--clr-text);
   padding: .7rem 1.2rem;
@@ -232,8 +232,8 @@ body {
 }
 
 .btn-primary-light:is(:hover, :focus, :active) {
-  background: transparent;
-  color: var(--clr-white);
+  background: var(--clr-muted);
+  color: var(--clr-text);
 }
 
 .btn-primary-light i {
@@ -242,13 +242,13 @@ body {
 }
 
 .btn-primary-light:is(:hover, :focus, :active) i {
-  color: var(--clr-white);
+  color: var(--clr-text);
   transform: translate(5px);
 }
 
 .btn-secondary-light {
-  background: transparent;
-  border: 1.59px solid var(--clr-muted);
+  background-color: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255 255 255 / .25);
   border-radius: var(--br-s);
   color: var(--clr-white);
   padding: .7rem 1.2rem;
@@ -262,6 +262,58 @@ body {
 }
 
 .btn-secondary-light:is(:hover, :focus, :active) {
-  border: 1.59px solid var(--clr-accent-300);
-  color: var(--clr-accent-300);
+  background-color: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255 255 255 / .3);
+}
+
+.scroll-up-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.1rem;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50%;
+  background-color: rgba(0 0 0 / .8);
+  border: 1px solid rgba(255 255 255 / .3);
+  color: var(--clr-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s, visibility .4s;
+  z-index: 10;
+}
+
+.scroll-up-btn:is(:hover, :focus, :active) {
+  background-color: var(--clr-dark);
+}
+
+.scroll-up-btn.show-scroll {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-up-btn i {
+  color: var(--clr-white);
+  animation: scroll-up 2s infinite;
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-.7rem);
+    opacity: 0;
+  }
 }

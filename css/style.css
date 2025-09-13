@@ -65,7 +65,7 @@ header {
   width: 80%;
   height: 100%;
   z-index: 1000;
-  transition: var(--transition-2);
+  transition: var(--transition-1);
 }
 
 .nav-wrapper.nav-active {
@@ -183,7 +183,6 @@ header {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--gap-2);
-  /* padding-left: 10rem; */
   max-width: 47rem;
 }
 
@@ -687,10 +686,15 @@ header {
   font-weight: bold;
 }
 
+/* .step-cta {
+  max-width: 24rem;
+} */
+
 .step-cta a {
   align-self: flex-start;
   border-bottom: 1px solid #626262;
   color: var(--clr-text);
+  font-weight: var(--fw-semi-bold);
 }
 
 
@@ -728,7 +732,7 @@ header {
   border: 1px solid rgba(255, 255, 255, .56);
   box-shadow: 0 6px 8px #00000014;
   /* box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px 0px; */
-  border-radius: var(--br-1);
+  border-radius: var(--br-s);
   display: flex;
   flex-direction: column;
   gap: var(--gap-3);
@@ -829,6 +833,7 @@ header {
   border: 1.5px solid rgba(255, 255, 255, .4);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px 0px;
   padding: 1.5rem; */
+  /* max-width: 27rem; */
 }
 
 .plan-cta .bi-info-circle {
@@ -842,6 +847,10 @@ header {
   border-bottom: 1px solid var(--clr-text);
   color: var(--clr-text);
   font-weight: var(--fw-semi-bold);
+}
+
+.plan-cta a i {
+  margin-left: .25rem;
 }
 
 
@@ -905,11 +914,18 @@ header {
 /* FAQ SECTION */
 
 .faq-section {
+  background-color: var(--clr-dark);
   display: flex;
-   flex-direction: column;
+  flex-direction: column;
   gap: var(--gap-5);
   margin-block: clamp(4rem, 2.9437rem + 4.5070vw, 7rem);
   padding-inline: clamp(1.2rem, -1.5465rem + 11.7183vw, 9rem);
+  padding-block: clamp(3rem, 2.2958rem + 3.0047vw, 5rem);
+}
+
+.faq-section .section-header {
+  color: var(--clr-white);
+  max-width: 37rem;
 }
 
 .faq-card-wrapper {
@@ -925,10 +941,17 @@ header {
 }
 
 .faq-card {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--br-s);
-  padding: 1.1rem 1.1rem 1.3rem 1.1rem;
+  background-color: transparent;
+  border: 1px solid rgba(255 255 255 / .15);
+  border-radius: var(--br-1);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 5px 16px 0px;
+  padding: 1.3rem 1.3rem 1.3rem 1.3rem;
+  transition: var(--transition-1);
 }
+
+/* .faq-card:hover {
+  background-color: rgba(255, 255, 255, .025);
+} */
 
 .faq-card-heading {
   border-bottom: 1px solid transparent;
@@ -941,8 +964,8 @@ header {
 }
 
 .faq-card-heading.faqActive {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding-bottom: 1.1rem;
+  border-bottom: 1.2px solid rgba(255, 255, 255, .095);
+  padding-bottom: 1.3rem;
 }
 
 .faq-card-heading.faqActive i {
@@ -950,6 +973,7 @@ header {
 }
 
 .faq-card-question {
+  color: var(--clr-white);
   font-family: var(--ff-heading);
   font-size: 1.1rem;
 }
@@ -964,15 +988,15 @@ header {
 }
 
 .faq-card-icon i {
-  color: var(--clr-dark);
+  color: var(--clr-white);
   font-size: 1.2rem;
-  transition: var(--transition-2);
+  transition: var(--transition-1);
 }
 
 .faq-card-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .4s ease;
+  transition: max-height .35s ease;
 }
 
 .faq-card-content {
@@ -980,7 +1004,16 @@ header {
 }
 
 .faq-card-content li {
+  color: var(--clr-text-light);
   list-style-position: inside;
+}
+
+.faq-card-answer {
+  color: var(--clr-text-light);
+}
+
+.faq-card-answer strong {
+  color: var(--clr-white);
 }
 
 .faq-card-answer-link {
@@ -989,12 +1022,32 @@ header {
   font-weight: var(--fw-semi-bold);
 }
 
+.faq-cta {
+  color: var(--clr-text-light);
+}
+
+.faq-cta strong {
+  color: var(--clr-white);
+}
+
 .faq-cta a {
-  border-bottom: 1px solid var(--clr-text);
-  color: var(--clr-text);
+  border-bottom: 1px solid var(--clr-text-light);
+  color: var(--clr-white);
   font-weight: var(--fw-semi-bold);
+  transition: var(--transition-1);
 }
 
 .faq-cta a i {
+  color: var(--clr-white);
   margin-left: .25rem;
+  transition: var(--transition-1);
+}
+
+.faq-cta a:is(:hover, :active, :focus) {
+  border-bottom: 1px solid var(--clr-accent-300);
+  color: var(--clr-accent-300);
+}
+
+.faq-cta a:is(:hover, :active, :focus) i {
+  color: var(--clr-accent-300);
 }
