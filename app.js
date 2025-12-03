@@ -517,3 +517,48 @@ function initScrollToTop() {
       }, config.debounceTime)
    );
 }
+
+ScrollReveal().reveal(
+   '.hero-heading, .hero-paragraph, .hero-btns, infinite-carousel, .section-heading, .process-card, .cta, footer',
+   {
+      duration: 1400,
+      opacity: 0,
+      easing: 'cubic-bezier(0.420, 0.000, 0.580, 1.000)',
+   }
+);
+
+ScrollReveal().reveal('.service-card, .pricing-plan, .testimonial-card', {
+   easing: 'cubic-bezier(0.420, 0.000, 0.580, 1.000)',
+   origin: 'bottom',
+   distance: '60px',
+   interval: 100,
+   duration: 900,
+   viewFactor: 0.13,
+});
+
+ScrollReveal().reveal('.project-card', {
+   easing: 'cubic-bezier(0.420, 0.000, 0.580, 1.000)',
+   origin: 'bottom',
+   distance: '60px',
+   interval: 100,
+   duration: 900,
+   viewFactor: 0.13,
+});
+
+ScrollReveal().reveal('.step-card', {
+   easing: 'cubic-bezier(0.420, 0.000, 0.580, 1.000)',
+   origin: 'top',
+   distance: '60px',
+   interval: 100,
+   duration: 900,
+   viewFactor: 0.13,
+});
+
+ScrollReveal().reveal('.faq-card', {
+   easing: 'cubic-bezier(0.420, 0.000, 0.580, 1.000)',
+   origin: 'left',
+   distance: '60px',
+   interval: 100,
+   duration: 900,
+   viewFactor: 0.13,
+});
