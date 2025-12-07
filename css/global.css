@@ -218,7 +218,6 @@ body {
 /* Button Styles */
 .btn-primary-light {
   background: var(--clr-white);
-  /* border: 1px solid var(--clr-white); */
   border-radius: var(--br-s);
   color: var(--clr-text);
   padding: .7rem 1.2rem;
@@ -317,4 +316,67 @@ body {
     transform: translateY(-.7rem);
     opacity: 0;
   }
+}
+
+
+/* 404 Error Page Styles */
+.error-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: clamp(1.2rem, -1.5465rem + 11.7183vw, 9rem);
+  background-color: var(--clr-dark);
+}
+
+.error-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.error-title {
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-bold);
+  color: var(--clr-accent-300);
+  margin-bottom: var(--gap-2);
+  line-height: 1;
+}
+
+.error-subtitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--clr-white);
+  margin-bottom: var(--gap-2);
+  font-family: var(--ff-heading);
+}
+
+.error-description {
+  color: var(--clr-text-light);
+  margin-bottom: var(--gap-4);
+  line-height: 1.6;
+}
+
+.error-btn {
+  background: var(--clr-white);
+  border-radius: var(--br-s);
+  color: var(--clr-text);
+  padding: .7rem 1.2rem;
+  font-weight: var(--fw-medium);
+  transition: var(--transition-1);
+}
+
+.error-btn:is(:hover, :focus, :active) {
+  background: rgba(255 255 255 / .9);
+  color: var(--clr-text);
+}
+
+.error-btn i {
+  color: var(--clr-text);
+  transition: var(--transition-1);
+  margin-left: .5rem;
+}
+
+.error-btn:is(:hover, :focus, :active) i {
+  color: var(--clr-text);
+  transform: translate(5px);
 }

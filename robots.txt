@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Disallow specific pages
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /contact/thank-you
+Disallow: /404.html
+
+# Allow specific important files
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://quickrank.org/sitemap.xml

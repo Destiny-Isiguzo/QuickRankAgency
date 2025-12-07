@@ -347,9 +347,9 @@ header {
 }
 
 .service-card {
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
   border-radius: var(--br-1);
-  border: 1.5px dashed var(--clr-muted);
+  border: 1px solid rgba(0 0 0 / .13);
   display: flex;
   flex-direction: column;
   gap: var(--gap-2);
@@ -357,7 +357,7 @@ header {
 }
 
 .service-card-btn {
-  background-color: var(--clr-white);
+  background-color: #f3f3f3;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -368,12 +368,11 @@ header {
 
 .service-card-btn i {
   color: var(--clr-dark);
-  font-size: 1.2rem;
+  font-size: 1.45rem;
 }
 
 .service-card-title {
   color: var(--clr-dark);
-  /* font-weight: var(--fw-semi-bold); */
   font-size: 1.2rem;
   max-width: 20rem;
   padding-right: 5rem;
@@ -709,14 +708,14 @@ header {
   margin-block: clamp(4rem, 2.9437rem + 4.5070vw, 7rem);
   padding-inline: clamp(1.2rem, -1.5465rem + 11.7183vw, 9rem);
   background-color: var(--clr-dark);
-  background-image: url(/assets/images/cta-bg.avif);
+  background-image: url(/assets/images/bg.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .pricing-section .section-header {
-  color: var(--clr-text);
+  color: var(--clr-text-light);
   font-family: var(--ff-heading);
 }
 
@@ -1240,6 +1239,7 @@ footer {
 
 .footer-legal a {
   color: var(--clr-text);
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 48em) {
