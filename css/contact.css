@@ -211,3 +211,73 @@ header {
   font-family: var(--ff-heading);
   font-size: clamp(1.05rem, 1.0324rem + 0.0751vw, 1.1rem);
 }
+
+/* Toast Notification Container */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual Toast Notification */
+.toast {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #333;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 300px;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-left: 5px solid #ccc;
+  opacity: 0;
+}
+
+/* Toast Animation States */
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast.hide {
+  transform: translateX(120%);
+  opacity: 0;
+}
+
+/* Icon Styling */
+.toast-icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Success State */
+.toast.success {
+  border-left-color: #2ecc71;
+}
+
+.toast.success .toast-icon {
+  color: #2ecc71;
+}
+
+/* Error State */
+.toast.error {
+  border-left-color: #e74c3c;
+}
+
+.toast.error .toast-icon {
+  color: #e74c3c;
+}
+
+/* Toast Message */
+.toast-message {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
