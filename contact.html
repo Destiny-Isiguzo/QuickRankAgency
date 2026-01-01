@@ -261,7 +261,7 @@
           toast.classList.add('show');
         });
 
-        // Remove after 3 seconds
+        // Remove after 6 seconds
         setTimeout(() => {
           toast.classList.remove('show');
           toast.classList.add('hide');
@@ -270,7 +270,7 @@
           toast.addEventListener('transitionend', () => {
             toast.remove();
           });
-        }, 3000);
+        }, 6000);
       }
     });
   </script>
