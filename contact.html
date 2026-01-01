@@ -122,7 +122,7 @@
         <div class="contact-field">
           <label for="budget">Budget range (optional)</label>
 
-          <input type="text" name="budget" id="budget">
+          <input type="text" placeholder="$999 - $5,000" name="budget" id="budget">
         </div>
 
         <div class="contact-field">
@@ -209,7 +209,7 @@
         }).then(response => {
           if (response.ok) {
             form.reset();
-            showToast('Message sent successfully!', 'success');
+            showToast('Thanks! Your message was sent successfully.', 'success');
           } else {
             response.json().then(data => {
               if (Object.hasOwn(data, 'errors')) {
