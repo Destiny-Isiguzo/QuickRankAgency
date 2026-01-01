@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
    initInfiniteCarousel();
    initFAQ();
    initScrollToTop();
+   initContactForm();
 
    console.log('🚀 All systems initialized');
 
@@ -322,7 +323,7 @@ function initInfiniteCarousel() {
       }
    });
 
-   //  Optimize performance - 使用requestAnimationFrame来优化动画
+   //  Optimize performance - requestAnimationFrame
    let animationFrameId;
    let lastTime = 0;
    const speedFactor = 0.5; // Factors that control speed
@@ -516,6 +517,20 @@ function initScrollToTop() {
          showScrollBtn();
       }, config.debounceTime)
    );
+}
+
+// Contact Form functionality
+function initContactForm() {
+   const form = document.querySelector('.contact-form');
+   if (!form) return;
+
+   form.addEventListener('submit', function(event) {
+      // Allow the form to submit normally to Formspree
+      // After a short delay, reset the form
+      setTimeout(() => {
+         form.reset();
+      }, 3000);
+   });
 }
 
 ScrollReveal().reveal(
