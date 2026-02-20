@@ -94,11 +94,11 @@
           </div>
         </div>
 
-        <div class="contact-field">
+        <!-- <div class="contact-field">
           <label for="website-url">Website URL (optional)</label>
 
           <input type="text" name="website-url" id="website-url">
-        </div>
+        </div> -->
 
         <div class="contact-field">
           <label for="project-type">Project type
@@ -113,9 +113,9 @@
             <option value="web-development">Web Development</option>
             <option value="mobile-app-development">Mobile App Development</option>
 
-            <!-- <option value="ppc">PPC</option> -->
-            <!-- <option value="social-media">Social Media</option> -->
-            <!-- <option value="content-marketing">Content Marketing</option> -->
+            <option value="ppc">PPC</option>
+            <option value="social-media">Social Media</option>
+            <option value="content-marketing">Content Marketing</option>
           </select>
         </div>
 
@@ -124,6 +124,8 @@
 
           <input type="text" placeholder="$999 - $5,000" name="budget" id="budget">
         </div>
+
+        <div class="contact-field">
 
         <div class="contact-field">
           <label for="message">Your message
@@ -138,7 +140,7 @@
 
         <small>
           <i class="bi bi-info-circle"></i>
-          We typically reply in less than 24 hours.
+          We typically reply in less than 3 hours.
         </small>
       </form>
     </section>
@@ -209,7 +211,7 @@
         }).then(response => {
           if (response.ok) {
             form.reset();
-            showToast('Thanks! Your message was sent successfully.', 'success');
+            showToast('Your form was submitted successfully!', 'success');
           } else {
             response.json().then(data => {
               if (Object.hasOwn(data, 'errors')) {
